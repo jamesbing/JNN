@@ -1,6 +1,7 @@
 package james.nankai.FNN.perceptrons;
 
 import org.neuroph.core.Layer;
+import org.neuroph.core.learning.LearningRule;
 import org.neuroph.nnet.comp.neuron.BiasNeuron;
 import org.neuroph.nnet.comp.neuron.InputNeuron;
 import org.neuroph.nnet.learning.LMS;
@@ -15,8 +16,9 @@ public class PerceptronsNetwork {
 
 	
 	private NeuralNetworkType networkType;
+	private LearningRule learningRule;
 	
-	private void createNetwork(int inputNeuronsCount){
+	public void createNetwork(int inputNeuronsCount){
 		//set the type of the network is perceptronsNetwork
 		this.setNetworkType(NeuralNetworkType.PERCEPTRON);
 		//setup input neuranons, this is used to demonstrate the input stimulation
@@ -37,15 +39,18 @@ public class PerceptronsNetwork {
 		NeuralNetworkFactory.setDefaultIO(null);
 		//设置感知机学习算法，LMS学习算法
 		this.setLearningRule(new LMS());
-		
 	}
 	
 	/**TODO:setNetworkType function
 		james
 	 */
-	private void setLearningRule(LMS lms) {
+	public void setLearningRule(LMS lms) {
 		// TODO Auto-generated method stub
+		this.learningRule = lms;
 		
+	}
+	public LearningRule getLearningRule(){
+		return this.learningRule;
 	}
 
 	/**TODO:setNetworkType function
@@ -53,6 +58,9 @@ public class PerceptronsNetwork {
 	*/
 	public void setNetworkType(NeuralNetworkType T){
 		this.networkType = T;
+	}
+	public NeuralNetworkType getNetworkType(){
+		return this.networkType;
 	}
 	
 	/**TODO:addLayer function
