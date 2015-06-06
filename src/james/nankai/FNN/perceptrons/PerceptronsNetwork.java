@@ -18,6 +18,10 @@ public class PerceptronsNetwork {
 	private NeuralNetworkType networkType;
 	private LearningRule learningRule;
 	
+	public PerceptronsNetwork(int inputNeuronsCount) {
+	        this.createNetwork(inputNeuronsCount);
+	}
+	
 	public void createNetwork(int inputNeuronsCount){
 		//set the type of the network is perceptronsNetwork
 		this.setNetworkType(NeuralNetworkType.PERCEPTRON);
@@ -36,7 +40,7 @@ public class PerceptronsNetwork {
 		this.addLayer(outputLayer);
 		//将输入层的输入导向神经元
 		ConnectionFactory.fullConnect(inputLayer,outputLayer);
-		NeuralNetworkFactory.setDefaultIO(null);
+        NeuralNetworkFactory.setDefaultIO(null);
 		//设置感知机学习算法，LMS学习算法
 		this.setLearningRule(new LMS());
 	}
@@ -71,7 +75,14 @@ public class PerceptronsNetwork {
 	}
 	
 	
+	public void setTimePuntch(){
 	
+	}
+
+	public int getTimePuntch()
+	{
+
+	}
 }
 
 
